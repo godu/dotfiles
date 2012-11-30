@@ -1,38 +1,31 @@
 [user]
 	name = godu
 	email = arthur.weber@viacesi.fr
-  
+
 [core]
 	editor = nano
   ui = auto
+
+[color]
+  ui = true
 
 [apply]
   whitespace = fix
 
 [alias]
-  l = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%aN%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  co = checkout
+  l = log --graph --abbrev-commit --date=relative
   s = status -s
+  
   d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+
   tags = tag -l
   branches = branch -a
   remotes = remote -v
 
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
-
 [merge]
   log = true
+
+[format]
+  pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cr)%Creset
