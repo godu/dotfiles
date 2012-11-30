@@ -1,9 +1,9 @@
 [user]
-	name = godu
-	email = arthur.weber@viacesi.fr
+  name = godu
+  email = arthur.weber@viacesi.fr
 
 [core]
-	editor = nano
+  editor = nano
   ui = auto
 
 [color]
@@ -16,7 +16,7 @@
   co = checkout
   l = log --graph --abbrev-commit --date=relative
   s = status -s
-  
+
   d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
