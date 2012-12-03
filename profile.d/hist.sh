@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export HISTSIZE=60000
+export HISTFILESIZE=60000

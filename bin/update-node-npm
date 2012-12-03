@@ -3,58 +3,87 @@
 _dir_root="/usr"
 _dir_install=$_dir_root"/share/node"
 _dir_src=$_dir_root"/src/node"
+_dir_bin=$_dir_root"/share/node"/bin
 
 _node_github="git://github.com/joyent/node.git"
 _node_version=`curl -s http://nodejs.org/dist/latest/ | egrep -m 1 -o 'v[0-9]+\.[0-9]+\.[0-9]+' | head -n 1`
+
 _bash_file="/etc/profile.d/nodejs.sh"
 
-_whoami=`whoami`
+_sudoers_file="/etc/sudoers"
 
-case $_whoami in
-    root)
-        echo "You're root! *with great power comes great responsibility*"
-    
-        if [ ! -d "$_dir_src" ]; then
+if [ "$UID" -ne "0" ]
+then
+  echo "Vous devez être root pour exécuter ce script."
+  exit
+fi  
 
-            echo "1/6 Install"
-            echo "2/6 Clone"
-            git clone $_node_github $_dir_src >/dev/null
-            cd $_dir_src
-        else
-            cd $_dir_src
-            echo "1/6 Update"
-            git fetch
-            echo "2/6 Checkout"
-        fi
+if [ ! -d "$_dir_src" ]; then
 
-        _current_branch=`git describe`
+  echo "*****************************************"
+  echo " Installation de Node.JS"
+  echo "*****************************************"
+  echo "*****************************************"
+  echo " Récupération des sources"
+  echo "*****************************************"
+  git clone $_node_github $_dir_src >/dev/null
+  cd $_dir_src
+else
+  cd $_dir_src
+  echo "*****************************************"
+  echo " Mise à jour de Node.JS"
+  echo "*****************************************"
+  git fetch
+  echo "*****************************************"
+  echo " Récupération des sources"
+  echo "*****************************************"
+fi
 
-        if [ "$_current_branch" != "$_node_version" ]; then
-            git checkout $_node_version >/dev/null
-            echo "3/6 Configure"
-            ./configure --prefix=$_dir_install >/dev/null
-            echo "4/6 Make"
-            gmake >/dev/null
-            echo "5/6 Install"
-            gmake install >/dev/null
-        fi
+_current_branch=`git describe`
 
-        export PATH=$PATH:$_dir_install/bin
-        export NODE_PATH=$_dir_install:$_dir_install/lib/node_modules
+if [ "$_current_branch" != "$_node_version" ]; then
+  git checkout $_node_version >/dev/null
+  echo "*****************************************"
+  echo " Configuration"
+  echo "*****************************************"
+  ./configure --prefix=$_dir_install >/dev/null
+  echo "*****************************************"
+  echo " Compilation"
+  echo "*****************************************"
+  gmake >/dev/null
+  echo "*****************************************"
+  echo " Installation"
+  echo "*****************************************"
+  gmake install >/dev/null
+fi
 
-        echo "6/6 Update NPM"
-        npm update npm
+export PATH=$PATH:$_dir_install/bin
+export NODE_PATH=$_dir_install:$_dir_install/lib/node_modules
 
-        if [ ! -f $_bash_file ]; then
-            echo "6/6 Add to PATH"
-            touch $_bash_file;
-            echo "#!/bin/sh" > $_bash_file
-            echo "# com" >> $_bash_file
-            echo "export PATH=\$PATH:$_dir_install/bin" >> $_bash_file
-            echo "export NODE_PATH=$_dir_install:$_dir_install/lib/node_modules" >> $_bash_file
-        fi
-    ;;
-    *)
-        echo "Dude, You ain't root :("
-    ;;
-esac
+echo "*****************************************"
+echo " Installation de NPM"
+echo "*****************************************"
+npm update npm
+
+if [ ! -f $_bash_file ]; then
+  echo "*****************************************"
+  echo " Ajout au PATH"
+  echo "*****************************************"
+  touch $_bash_file;
+  echo "#!/bin/sh" > $_bash_file
+  echo "# com" >> $_bash_file
+  echo "export PATH=\$PATH:$_dir_install/bin" >> $_bash_file
+  echo "export NODE_PATH=$_dir_install:$_dir_install/lib/node_modules" >> $_bash_file
+fi
+
+if ! grep -qF "$_dir_bin" $_sudoers_file ; then
+  echo "*****************************************"
+  echo " Editez le fichier $_sudoers_file !  Quand nano se lancera"
+  echo " Trouver la ligne‘Defaults secure_path...’"
+  echo " et ajoutez “:$_dir_bin” à la fin de la ligne"
+  echo "*****************************************"
+  read -p "Press [Enter] to continue..."
+  nano $_sudoers_file
+fi
+
+exit
