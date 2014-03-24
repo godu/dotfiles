@@ -15,7 +15,10 @@
 [alias]
   co = checkout
   l = log --graph --abbrev-commit --date=relative
+  b = blame --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset'
   s = status -s
+
+  dt = diff-tree --no-commit-id --name-only -r
 
   d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
@@ -24,8 +27,8 @@
   branches = branch -a
   remotes = remote -v
 
-[merge]
-  log = true
-
 [format]
-  pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cr)%Creset
+  pretty = %Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset
+
+[push]
+  default = matching
