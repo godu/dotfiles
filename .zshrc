@@ -40,11 +40,11 @@ ZSH_THEME="wedisagree"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bower history node npm ssh-agent sublime supervisor brew sudo vagrant osx)
+plugins=(atom bower brew command-not-found docker history git git-extras git-flow node npm osx redis-cli rsync ssh-agent sublime sudo supervisor systemd vagrant web-search xcode yum)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/godu/.local/bin:/home/godu/bin
+export PATH=/usr/local/bin:$PATH:/usr/lib64/qt-3.3/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/godu/.local/bin:/home/godu/bin
 
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
