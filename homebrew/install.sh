@@ -13,9 +13,9 @@ brew update
 brew upgrade
 
 # Install package
-brew install brew-cask git mongodb node pandoc wget unrar nginx
+brew install caskroom/cask/brew-cask git mongodb node pandoc wget unrar nginx
 # Install software
-brew cask install atom firefox github launchrocket robomongo onyx vagrant vlc chromium gimp iterm2 virtualbox
+brew cask install atom dropbox firefox github launchrocket robomongo onyx vagrant vlc chromium gimp iterm2 virtualbox sublime-text docker boot2docker fig
 
 # Cleanup
 brew cleanup
