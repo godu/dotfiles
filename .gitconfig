@@ -3,7 +3,7 @@
   email = arthur.weber@viacesi.fr
 
 [core]
-  editor = nano
+  editor = vim
   ui = auto
 
 [color]
