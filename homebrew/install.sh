@@ -9,14 +9,14 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 fi
 
 # Update
-brew update
+brew update --all
 brew upgrade
 
 # Install package
 brew install caskroom/cask/brew-cask git mongodb node pandoc wget unrar nginx docker docker-compose elasticsearch
 brew tap caskroom/versions
 # Install software
-brew cask install java atom dropbox firefoxdeveloperedition github launchrocket robomongo omnigraffle-professional5 onyx vagrant visual-studio-code vlc chromium gimp iterm2-nightly virtualbox sublime-text3 slack
+brew cask install java atom dropbox firefoxdeveloperedition github launchrocket robomongo omnigraffle-professional5 onyx vagrant visual-studio-code vlc chromium gimp iterm2-nightly virtualbox sublime-text3 slack minecraft skype universal-media-server
 
 # Cleanup
 brew cleanup
