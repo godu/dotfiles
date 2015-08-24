@@ -31,4 +31,4 @@
   pretty = %Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset
 
 [push]
-  default = single
+  default = simple
