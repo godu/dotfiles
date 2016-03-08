@@ -13,10 +13,10 @@ brew update --all
 brew upgrade
 
 # Install package
-brew install caskroom/cask/brew-cask git mongodb node pandoc wget unrar nginx docker docker-compose elasticsearch
+brew install caskroom/cask/brew-cask docker docker-compose docker-machine elasticsearch git graphviz htop mongodb node pandoc python redis unrar wget
 brew tap caskroom/versions
 # Install software
-brew cask install java atom dropbox firefoxdeveloperedition github launchrocket robomongo omnigraffle-professional5 onyx vagrant visual-studio-code vlc chromium gimp iterm2-nightly virtualbox sublime-text3 slack minecraft skype universal-media-server
+brew cask install atom battle-net chromium dropbox firefoxdeveloperedition gimp google-chrome iterm2-nightly java launchrocket minecraft onyx robomongo skype slack spotify sublime-text3 transmission vagrant virtualbox visual-studio-code vlc xmind xquartz
 
 # Cleanup
 brew cleanup
