@@ -2,7 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="wedisagree"
 DISABLE_UPDATE_PROMPT=true
 export UPDATE_ZSH_DAYS=1
-plugins=(atom bower brew command-not-found docker git git-extra history node npm osx redis-cli rsync sublime sudo supervisor systemd vagrant web-search xcode yum)
+plugins=(autoenv autojump aws boot2docker bower branch brew brew-cask cask colored-man-pages colorize command-not-found common-aliases copydir copyfile cp debian dircycle dirhistory dirpersist dnf docker docker-compose emoji emoji-clock encode64 extract fastfile fedora frontend-search git git-extras git-flow git-flow-avh git-hubflow git-prompt git-remote-branch gitfast github gitignore grunt gulp heroku history history-substring-search marked2 node npm nvm nyan osx profiles redis-cli repo rsync screen ssh-agent sublime sudo supervisor systemadmin systemd terminalapp terminitor terraform thefuck themes torrent ubuntu urltools vagrant vault vi-mode vim-interaction web-search xcode zsh-navigation-tools zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
