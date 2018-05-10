@@ -2,7 +2,25 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="wedisagree"
 DISABLE_UPDATE_PROMPT=true
 export UPDATE_ZSH_DAYS=7
-plugins=(aws brew brew-cask docker git git-extra history node npm osx redis-cli sudo heroku nyan ssh-agent zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+  aws
+  brew
+  brew-cask
+  docker
+  git
+  git-extra
+  history
+  node
+  npm
+  osx
+  redis-cli
+  sudo
+  heroku
+  nyan
+  ssh-agent
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
