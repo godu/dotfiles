@@ -1,0 +1,23 @@
+{
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": false,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.wordWrap": "on",
+  "eslint.autoFixOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "javascript.validate.enable": false,
+  "search.useIgnoreFiles": true,
+  "terminal.integrated.scrollback": 25000,
+  "workbench.colorCustomizations": {
+    "terminal.ansiBlue": "#4444ff",
+    "diffEditor.insertedTextBackground": "#00ff0040",
+    "diffEditor.removedTextBackground": "#ff000040"
+  },
+  "workbench.colorTheme": "Default High Contrast",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.settings.editor": "json",
+}

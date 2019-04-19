@@ -15,6 +15,7 @@
 [alias]
   co = checkout
   l = log --graph --abbrev-commit --date=relative
+  c = commit
   b = blame --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset'
   s = status -s
 
