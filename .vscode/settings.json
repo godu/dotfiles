@@ -1,16 +1,17 @@
 {
-  "diffEditor.ignoreTrimWhitespace": true,
-  "diffEditor.renderSideBySide": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": true,
   "editor.renderWhitespace": "all",
   "editor.rulers": [
     80,
     120
   ],
   "editor.wordWrap": "on",
-  "eslint.autoFixOnSave": true,
   "files.autoSave": "onFocusChange",
-  "javascript.validate.enable": false,
   "search.useIgnoreFiles": true,
+  "terminal.integrated.rendererType": "experimentalWebgl",
   "terminal.integrated.scrollback": 25000,
   "workbench.colorCustomizations": {
     "terminal.ansiBlue": "#4444ff",
@@ -18,6 +19,4 @@
     "diffEditor.removedTextBackground": "#ff000040"
   },
   "workbench.colorTheme": "Default High Contrast",
-  "workbench.panel.defaultLocation": "right",
-  "workbench.settings.editor": "json",
 }
