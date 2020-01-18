@@ -13,10 +13,12 @@
   "search.useIgnoreFiles": true,
   "terminal.integrated.rendererType": "experimentalWebgl",
   "terminal.integrated.scrollback": 25000,
+  "window.zoomLevel": -2,
   "workbench.colorCustomizations": {
     "terminal.ansiBlue": "#4444ff",
     "diffEditor.insertedTextBackground": "#00ff0040",
     "diffEditor.removedTextBackground": "#ff000040"
   },
   "workbench.colorTheme": "Default High Contrast",
+  "workbench.settings.useSplitJSON": true,
 }
