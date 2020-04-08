@@ -10,6 +10,7 @@
   ],
   "editor.wordWrap": "on",
   "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
   "search.useIgnoreFiles": true,
   "terminal.integrated.rendererType": "experimentalWebgl",
   "terminal.integrated.scrollback": 25000,
