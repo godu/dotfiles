@@ -39,3 +39,19 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 alias dockerclean='dockercleanc || true && dockercleani'
 
 alias dc='docker-compose'
+alias dk='dockerkillall'
+
+function neuron () {
+  dockerArgs=()
+  matchedArgs=${(M)@:#-*S*}
+  restArgs=${@:#-*S*}
+
+  if [[ -n $matchedArgs ]]; then 
+    dockerArgs=("-p" "8080:8080")
+    matchedArgs=${(S)matchedArgs#S}
+    matchedArgs=${matchedArgs#^-$}
+    restArgs+=("-s" "0.0.0.0:8080")
+  fi
+  docker run --rm -it $dockerArgs --user $(id -u):$(id -g) -v "$(pwd):/zettelkasten" -w /zettelkasten sridca/neuron neuron $restArgs $matchedArgs
+}
+alias neuron=neuron
