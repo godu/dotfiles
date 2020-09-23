@@ -27,6 +27,8 @@
   tags = tag -l
   branches = branch -a
   remotes = remote -v
+  
+  cu = !"git branch | grep -v \"master\" | xargs git branch -D"
 
 [format]
   pretty = %Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset
