@@ -8,7 +8,7 @@ brew update --all
 brew upgrade
 
 # Install
-brew install ghcup
+brew install ghcup htop mongosh
 brew install --cask authy chromium docker firefox google-chrome iterm2 slack spectacle spotify visual-studio-code
 
 # Node Manager - https://github.com/Schniz/fnm
