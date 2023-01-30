@@ -8,14 +8,13 @@ open https://brew.sh/
 brew update --all
 brew upgrade
 
+# Install
 brew install iterm2 visual-studio-code slack firefox google-chrome chromium spotify spectacle
 
 # Cleanup
 brew cleanup
-brew cask cleanup
 
 # Audit installation
 brew doctor
-brew cask doctor
 
 exit 0
