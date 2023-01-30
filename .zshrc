@@ -7,16 +7,21 @@ ZSH_THEME="wedisagree"
 plugins=(
     aws
     brew
+    command-not-found
     docker
     docker-compose
-    dotnet
+    fnm
+    git
     heroku
     history
     node
     npm
-    osx
+    macos
     redis-cli
+    rust
     stack
+    vscode
+    zsh-interactive-cd
 )
 
 export PATH="/usr/local/sbin:/Users/arthurweber/.local/bin:$PATH"
@@ -25,28 +30,13 @@ source $ZSH/oh-my-zsh.sh
 
 export RPROMPT='${time} %{$fg_bold[red]%}$(git_current_branch)%{$reset_color%}'
 
-alias dockerkillall='docker kill $(docker ps -q)'
+alias dockerkillall='docker kill $(docker ps -q) && docker system prune --volumes -f'
 alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q)'
 alias dockerclean='dockercleanc || true && dockercleani'
 
+alias dk='dockerkillall'
 alias dc='docker-compose'
-alias dk="dockerkillall"
-
-function neuron () {
-  dockerArgs=()
-  matchedArgs=${(M)@:#-*S*}
-  restArgs=${@:#-*S*}
-
-  if [[ -n $matchedArgs ]]; then
-    dockerArgs=("-p" "2300:2300")
-    matchedArgs=${(S)matchedArgs#S}
-    matchedArgs=${matchedArgs#^-$}
-    restArgs+=("-s" "0.0.0.0:2300")
-  fi
-  sh -c "docker run --rm -it $dockerArgs --user $(id -u):$(id -g) -v "$(pwd):/zettelkasten" -w /zettelkasten sridca/neuron neuron -d . $restArgs $matchedArgs"
-}
-alias neuron=neuron
 
 # fnm
 eval "$(fnm env)"
