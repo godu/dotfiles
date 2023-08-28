@@ -24,6 +24,10 @@ plugins=(
     zsh-interactive-cd
 )
 
+# To create `www.youtube.com_cookies.txt` file, use https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/
+alias watchlist='yt-dlp --cookies ~/www.youtube.com_cookies.txt --write-thumbnail -N 10 --write-subs -o "%(upload_date)s-%(channel)s-%(title)s.%(ext)s" https://www.youtube.com/playlist\?list\=WL'
+alias wl=watchlist
+
 export PATH="/usr/local/sbin:/Users/arthurweber/.local/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
